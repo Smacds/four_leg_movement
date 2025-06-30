@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<robot name="cuadrupedo">
+
+  <!-- Materiales -->
+  <material name="red"><color rgba="1 0 0 1"/></material>
+  <material name="green"><color rgba="0 1 0 1"/></material>
+  <material name="blue"><color rgba="0 0 1 1"/></material>
+  <material name="yellow"><color rgba="1 1 0 1"/></material>
+
+  <!-- Torso -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.4 1.0 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.85" rpy="0 0 0"/>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <!-- ========== PATA BR (que en realidad es Front Left FL) ========== -->
+  <link name="Fl_link_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <material name="green"/>
+    </visual>
+  </link>
+  <link name="Fl_link_2">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.15"/>
+      </geometry>
+      <origin xyz="0 0 0.075" rpy="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <link name="Fl_link_3">
+    <visual>
+      <geometry>
+        <box size="0.1 0.07 0.075"/>
+      </geometry>
+      <origin xyz="0 0 0.0375" rpy="0 0 0"/>
+      <material name="yellow"/>
+    </visual>
+  </link>
+  <joint name="Fl_joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child  link="Fl_link_1"/>
+    <origin xyz="-0.25 0.45 0.9" rpy="-2.79253 0 3.14159"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Fl_joint_2" type="revolute">
+    <parent link="Fl_link_1"/>
+    <child  link="Fl_link_2"/>
+    <origin xyz="0 0 0.3" rpy="-0.349066 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Fl_joint_3" type="revolute">
+    <parent link="Fl_link_2"/>
+    <child  link="Fl_link_3"/>
+    <origin xyz="0 0 0.15" rpy="-1.5708 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- ========== PATA FR (que en realidad es Back Left BL) ========== -->
+  <link name="Bl_link_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <material name="green"/>
+    </visual>
+  </link>
+  <link name="Bl_link_2">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.15"/>
+      </geometry>
+      <origin xyz="0 0 0.075" rpy="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <link name="Bl_link_3">
+    <visual>
+      <geometry>
+        <box size="0.1 0.07 0.075"/>
+      </geometry>
+      <origin xyz="0 0 0.0375" rpy="0 0 0"/>
+      <material name="yellow"/>
+    </visual>
+  </link>
+  <joint name="Bl_joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child  link="Bl_link_1"/>
+    <origin xyz="-0.25 -0.45 0.9" rpy="-2.79253 0 3.14159"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Bl_joint_2" type="revolute">
+    <parent link="Bl_link_1"/>
+    <child  link="Bl_link_2"/>
+    <origin xyz="0 0 0.3" rpy="-0.349066 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Bl_joint_3" type="revolute">
+    <parent link="Bl_link_2"/>
+    <child  link="Bl_link_3"/>
+    <origin xyz="0 0 0.15" rpy="-1.5708 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- ========== PATA BL (que en realidad es Front Right FR) ========== -->
+  <link name="Fr_link_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <material name="green"/>
+    </visual>
+  </link>
+  <link name="Fr_link_2">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.15"/>
+      </geometry>
+      <origin xyz="0 0 0.075" rpy="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <link name="Fr_link_3">
+    <visual>
+      <geometry>
+        <box size="0.1 0.07 0.075"/>
+      </geometry>
+      <origin xyz="0 0 0.0375" rpy="0 0 0"/>
+      <material name="yellow"/>
+    </visual>
+  </link>
+  <joint name="Fr_joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child  link="Fr_link_1"/>
+    <origin xyz="0.25 0.45 0.9" rpy="-2.79253 0 3.14159"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Fr_joint_2" type="revolute">
+    <parent link="Fr_link_1"/>
+    <child  link="Fr_link_2"/>
+    <origin xyz="0 0 0.3" rpy="-0.349066 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Fr_joint_3" type="revolute">
+    <parent link="Fr_link_2"/>
+    <child  link="Fr_link_3"/>
+    <origin xyz="0 0 0.15" rpy="-1.5708 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- ========== PATA FL (que en realidad es Back Right BR) ========== -->
+  <link name="Br_link_1">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <material name="green"/>
+    </visual>
+  </link>
+  <link name="Br_link_2">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.15"/>
+      </geometry>
+      <origin xyz="0 0 0.075" rpy="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+  <link name="Br_link_3">
+    <visual>
+      <geometry>
+        <box size="0.1 0.07 0.075"/>
+      </geometry>
+      <origin xyz="0 0 0.0375" rpy="0 0 0"/>
+      <material name="yellow"/>
+    </visual>
+  </link>
+  <joint name="Br_joint_1" type="revolute">
+    <parent link="base_link"/>
+    <child  link="Br_link_1"/>
+    <origin xyz="0.25 -0.45 0.9" rpy="-2.79253 0 3.14159"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Br_joint_2" type="revolute">
+    <parent link="Br_link_1"/>
+    <child  link="Br_link_2"/>
+    <origin xyz="0 0 0.3" rpy="-0.349066 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+  <joint name="Br_joint_3" type="revolute">
+    <parent link="Br_link_2"/>
+    <child  link="Br_link_3"/>
+    <origin xyz="0 0 0.15" rpy="-1.5708 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.1" upper="3.1" effort="10" velocity="1"/>
+  </joint>
+
+</robot>
